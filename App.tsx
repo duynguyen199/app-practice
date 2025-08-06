@@ -1,5 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import {
+  ActivityIndicator,
   Alert,
   Button,
   Image,
@@ -12,11 +13,13 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import { scale } from "react-native-size-matters";
 
 export default function App() {
   const onButtonPress = () => Alert.alert("Pressed");
   return (
     <SafeAreaView style={styles.container}>
+      <ActivityIndicator/>
       <ScrollView
         showsVerticalScrollIndicator={false}
         horizontal={false}
@@ -25,20 +28,7 @@ export default function App() {
         }}
       >
         <Text style={styles.textHeader}>Hello</Text>
-        <Text numberOfLines={3}>
-          Lorem ipsum dolor sit a
-          <Text
-            style={styles.textSubHeader}
-            onPress={() => {
-              Alert.alert("Press");
-            }}
-          >
-            Press Here
-          </Text>
-          met consectetur adipisicing elit. Dolor, fugiat iusto. Neque odio
-          omnis ea porro sed repellat et deserunt iure ducimus nulla, facilis
-          maxime illum fugiat numquam magni blanditiis.
-        </Text>
+  
         <StatusBar style="auto" />
 
         <Pressable onPress={onButtonPress}>
@@ -48,27 +38,13 @@ export default function App() {
           />
         </Pressable>
 
-        <TouchableOpacity>
-          <Image style={styles.image1} source={require("./assets/tiger.jpg")} />
-        </TouchableOpacity>
-         <TouchableOpacity>
-          <Image style={styles.image1} source={require("./assets/tiger.jpg")} />
-        </TouchableOpacity>
-         <TouchableOpacity>
-          <Image style={styles.image1} source={require("./assets/tiger.jpg")} />
-        </TouchableOpacity>
-         <TouchableOpacity>
-          <Image style={styles.image1} source={require("./assets/tiger.jpg")} />
-        </TouchableOpacity>
-         <TouchableOpacity>
-          <Image style={styles.image1} source={require("./assets/tiger.jpg")} />
-        </TouchableOpacity>
-         <TouchableOpacity>
-          <Image style={styles.image1} source={require("./assets/tiger.jpg")} />
-        </TouchableOpacity>
+        <View style={styles.view1}>
 
+        </View>
         <Button title="Press On Me" onPress={onButtonPress} />
       </ScrollView>
+
+
     </SafeAreaView>
   );
 }
@@ -90,4 +66,9 @@ const styles = StyleSheet.create({
     height: 200,
     width: 200,
   },
+  view1:{
+    width:100,
+    height:200,
+    backgroundColor:"red",
+  }
 });
